@@ -1,9 +1,11 @@
 package com.api.login.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.api.login.entity.dtos.UserDTO;
 
 @Entity(name = "USUARIO")
 public class UserEntity {
@@ -14,6 +16,13 @@ public class UserEntity {
 	private String email;
 	private String senha;
 	
+	public UserEntity() {}
+	
+	public UserEntity(UserDTO dto) {
+		this.id = dto.getId();
+		this.email = dto.getEmail();
+		this.senha = dto.getSenha();
+	}
 	
 	public Integer getId() {
 		return id;
