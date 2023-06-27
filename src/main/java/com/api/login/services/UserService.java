@@ -14,19 +14,19 @@ import com.api.login.repositories.UserRepository;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository repository;
 
-	public List<UserEntity> getAll(){
+	public List<UserEntity> getAll() {
 		return repository.findAll();
 	}
-	
+
 	public Optional<UserEntity> getOne(Integer id) {
 		return repository.findById(id);
 	}
-	
-	public UserEntity create(@Valid UserDTO entity){
-		return repository.save(new UserEntity(entity));
+
+	public UserEntity create(@Valid UserDTO dto) {
+		return repository.save(new UserEntity(dto));
 	}
 }
